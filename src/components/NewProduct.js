@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+
  const NewProdcut = () => {
-     return (  );
+     return ( 
+         <h1>From NewProducto.js</h1>
+      );
  }
   
  export default NewProdcut;
