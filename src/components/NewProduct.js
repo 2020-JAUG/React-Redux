@@ -7,7 +7,7 @@ import React from 'react';
                  <div className="card">
                      <div className="body">
                          <h2 className="text-center mb-4 font-weight-bold">
-                             Add new product
+                             Add new Product
                          </h2>
 
                          <form>
@@ -19,7 +19,7 @@ import React from 'react';
                                     placeholder="Product Name"
                                     name="name"
                                 />     
-                            </div>
+                            </div> 
 
                             <div className="form-group">
                                 <label>Product Price</label>
