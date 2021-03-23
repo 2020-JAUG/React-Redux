@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; //useSelector accesses the state inside the component
 import { createNewProductAction } from '../actions/productActions'; //Actions Redux
 
- const NewProdcut = () => {
+ const NewProduct = ( {history} ) => {
 
     //State of component
     const [name, saveName] = useState('');
     const [price, savePrice] = useState(0);
 
-
     //useDispatch executes the actions that we have in action
     const dispatch = useDispatch();
+
+    //Access store status
+    const loading = useSelector( state => state.products.loading );
+    const error = useSelector( state=> state.products.error );
 
     //We call action from productActions
     const addProduct = product => dispatch( createNewProductAction(product) );
@@ -18,7 +21,7 @@ import { createNewProductAction } from '../actions/productActions'; //Actions Re
     //When the User do submit
     const submitNewProduct = e => {
         e.preventDefault();
-
+ 
         //Validate form
         if(name.trim() === '' || price <= 0) {
             return;
@@ -31,7 +34,8 @@ import { createNewProductAction } from '../actions/productActions'; //Actions Re
             price
         });
 
-
+        //Redirect
+        history.push('/');
     }
 
      return ( 
@@ -75,6 +79,10 @@ import { createNewProductAction } from '../actions/productActions'; //Actions Re
                                 className="btn btn-primary font-weight-bold text-uppercase d-bolock w-100"
                                 >Add</button> 
                          </form>
+
+                         { loading ? <p>Loading...</p> : null }
+
+                         { error ? <p className="alert alert-danger p2 mt-4 text-center">There was a mistake</p> : null }
                      </div>
                  </div>
              </div>
@@ -82,4 +90,4 @@ import { createNewProductAction } from '../actions/productActions'; //Actions Re
       );
  }
   
- export default NewProdcut;
+ export default NewProduct;
