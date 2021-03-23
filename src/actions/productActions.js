@@ -1,4 +1,11 @@
-import { ADD_PRODUCT, ADD_PRODUCT_SUCCE, ADD_PRODUCT_ERROR } from '../types';
+import { 
+    ADD_PRODUCT,
+    ADD_PRODUCT_SUCCE,
+    ADD_PRODUCT_ERROR,
+    START_DOWNLOAD_PRODUCTS,
+    DOWNLOAD_PRODUCTS_SUCCE,
+    DOWNLOAD_PRODUCTS_ERROR
+} from '../types';
 import clientAxios from '../config/axios';
 import Swal from 'sweetalert2';
 
@@ -51,3 +58,17 @@ const addProductError = state => ({
     type: ADD_PRODUCT_ERROR,
     payload: state
 });
+
+//Function to download the products from the data base
+export function getProductsAction() {
+    return async (dispatch) => {
+        dispatch( downloadProducts() );
+    }
+}
+
+const downloadProducts = () => ({
+    type: START_DOWNLOAD_PRODUCTS,
+    payload: true
+    
+})
+
