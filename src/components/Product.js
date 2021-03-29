@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 //REDUX
 import { useDispatch } from 'react-redux';
 import { deleteProductAction } from '../actions/productActions';
@@ -13,10 +14,21 @@ const Product = ( {product} ) => {
     const confirmDeleteProduct = id => {
         
         //Ask the user
-
-        //Take it into action
-        dispatch( deleteProductAction(id) );
-
+        Swal.fire({
+            title: '¿Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Yes, delete it!',
+            cancelButtonText: 'Cancel'
+          }).then((result) => {
+            if (result.isConfirmed) {
+            //Take it into action
+            dispatch( deleteProductAction(id) );
+            }
+        });
     }
 
 
