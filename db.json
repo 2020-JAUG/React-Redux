@@ -1,29 +1,39 @@
 {
-    "products": [
-      {
-        "id": 1,
-        "name": "Carrot Juice",
-        "price": "500"
-      },
-      {
-        "id": 2,
-        "name": "Orange Juice",
-        "price": 3
-      },
-      {
-        "name": "Apple Juice",
-        "price": 3,
-        "id": 3
-      },
-      {
-          "name": "Rib eye 800g",
-          "price": "250",
-          "id": 4
-      },
-      {
-          "name": "Stramberry Juice",
-          "price": 3,
-          "id": 5
-      }
-    ]
-  }
+  "products": [
+    {
+      "name": "Rib eye 800g",
+      "price": "250",
+      "id": 4
+    },
+    {
+      "name": "Stramberry Juice",
+      "price": 3,
+      "id": 5
+    },
+    {
+      "name": "Rib eye 1kg",
+      "price": 122,
+      "id": 6
+    },
+    {
+      "name": "alex",
+      "price": 23,
+      "id": 7
+    },
+    {
+      "name": "alex",
+      "price": 23,
+      "id": 8
+    },
+    {
+      "name": "Rib eye 1kg",
+      "price": 333,
+      "id": 9
+    },
+    {
+      "name": "Orange 3kg",
+      "price": 4,
+      "id": 11
+    }
+  ]
+}
