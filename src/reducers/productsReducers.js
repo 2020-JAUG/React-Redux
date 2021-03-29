@@ -7,7 +7,10 @@ import {
     DOWNLOAD_PRODUCTS_ERROR,
     GET_REMOVE_PRODUCT,
     REMOVE_PRODUCT_SUCCE,
-    REMOVE_PRODUCT_ERROR
+    REMOVE_PRODUCT_ERROR,
+    GET_PRODUCT_EDIT,
+    EDIT_PRODUCT_SUCCE,
+    EDIT_PRODUCT_ERROR
 } from '../types';
 
 //Cada reducers tiene su propio started
@@ -15,7 +18,8 @@ const initialState = {
     products: [],
     error: null,
     loading: false,
-    removeproduct: null
+    removeproduct: null,
+    editproduct: null
 }
 //Here we evaluate the functions of actions
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -41,6 +45,9 @@ export default function( state = initialState, action ) {
 
         case REMOVE_PRODUCT_SUCCE:
             return { ...state, products: state.products.filter(product => product.id !== state.removeproduct ), removeproduct: null }
+
+        case GET_PRODUCT_EDIT:
+            return { ...state, editproduct: action.payload }    
 
         default:
             return state;
