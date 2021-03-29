@@ -1,6 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const EditProduct = () => {
+
+    //Product to edition
+    const product = useSelector( state => state.products.editproduct );
+    if( !product ) return null;
+    const { name, price, id } = product;
+
     return ( 
         <div className="row justify-content-center">
              <div className="col-md-8">
@@ -18,6 +25,7 @@ const EditProduct = () => {
                                     type="text"
                                     placeholder="Product Name"
                                     name="name"
+                                    value={name}
                                 />     
                             </div> 
 
@@ -28,6 +36,7 @@ const EditProduct = () => {
                                     type="number"
                                     placeholder="Product Precio"
                                     name="price"
+                                    value={price}
                                 />     
                             </div>
 
@@ -40,7 +49,7 @@ const EditProduct = () => {
                  </div>
              </div>
          </div>
-     );
+    );
 }
  
 export default EditProduct;
