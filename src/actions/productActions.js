@@ -4,7 +4,10 @@ import {
     ADD_PRODUCT_ERROR,
     START_DOWNLOAD_PRODUCTS,
     DOWNLOAD_PRODUCTS_SUCCE,
-    DOWNLOAD_PRODUCTS_ERROR
+    DOWNLOAD_PRODUCTS_ERROR,
+    GET_REMOVE_PRODUCT,
+    REMOVE_PRODUCT_SUCCE,
+    REMOVE_PRODUCT_ERROR
 } from '../types';
 import clientAxios from '../config/axios';
 import Swal from 'sweetalert2';
@@ -60,13 +63,13 @@ const addProductError = state => ({
 });
 
 //Function to download the products from the data base
-export function getProductsAction() {
+export function getProductsAction() { //Note getProductsAction, run the function wownloadProducts
     return async (dispatch) => {
         dispatch( downloadProducts() );
 
         try {
             const aswer = await clientAxios.get('/products');
-            dispatch( downloadProductsSucce(aswer.data) )
+            dispatch( downloadProductsSucce(aswer.data) )//Put dispatch if the call is succe
         } catch (error) {
             console.log(error)
             dispatch( downloadProductsError() )
@@ -90,3 +93,32 @@ const downloadProductsError = () => ({
     payload: true
 });
 
+//Select and delete the product
+export function deleteProductAction (id) {
+    return async (dispatch) => { 
+        dispatch(getProductDelete(id) ); 
+        
+        try {
+            await clientAxios.delete( `/products/${id}` );
+            dispatch( removeProductSucce() );
+        } catch (error) {
+            console.log(error)
+            dispatch( removeProductError() )
+            
+        }
+    }
+}
+
+const getProductDelete = id => ({
+    type: GET_REMOVE_PRODUCT,
+    payload: id
+});
+
+const removeProductSucce = () => ({
+    type: REMOVE_PRODUCT_SUCCE
+});
+
+const removeProductError = () => ({
+    type: REMOVE_PRODUCT_ERROR,
+    payload: true
+});
