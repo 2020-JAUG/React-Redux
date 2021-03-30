@@ -1,34 +1,14 @@
 {
   "products": [
     {
-      "name": "Rib eye 800g",
-      "price": "250",
-      "id": 4
-    },
-    {
       "name": "Stramberry Juice",
-      "price": 3,
+      "price": "3",
       "id": 5
     },
     {
       "name": "Rib eye 1kg",
-      "price": 122,
+      "price": "10",
       "id": 6
-    },
-    {
-      "name": "alex",
-      "price": 23,
-      "id": 7
-    },
-    {
-      "name": "alex",
-      "price": 23,
-      "id": 8
-    },
-    {
-      "name": "Rib eye 1kg",
-      "price": 333,
-      "id": 9
     },
     {
       "name": "Orange 3kg",
