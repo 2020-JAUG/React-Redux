@@ -34,7 +34,8 @@ export default function( state = initialState, action ) {
 
         case ADD_PRODUCT_ERROR:
         case DOWNLOAD_PRODUCTS_ERROR:
-        case REMOVE_PRODUCT_ERROR:    
+        case REMOVE_PRODUCT_ERROR:
+        case EDIT_PRODUCT_ERROR:   
             return { ...state, loading: false, error: action.payload }
 
         case DOWNLOAD_PRODUCTS_SUCCE:
@@ -44,10 +45,14 @@ export default function( state = initialState, action ) {
             return { ...state, removeproduct: action.payload }
 
         case REMOVE_PRODUCT_SUCCE:
-            return { ...state, products: state.products.filter(product => product.id !== state.removeproduct ), removeproduct: null }
+            return { ...state, products: state.products.filter( product => product.id !== state.removeproduct ), removeproduct: null }
 
         case GET_PRODUCT_EDIT:
-            return { ...state, editproduct: action.payload }    
+            return { ...state, editproduct: action.payload }
+
+        case EDIT_PRODUCT_SUCCE:
+            return { ...state, editproduct: null, 
+                products: state.products.map( product => product.id === action.payload.id ? product = action.payload : product ) }    
 
         default:
             return state;
