@@ -9,6 +9,7 @@ import {
     REMOVE_PRODUCT_SUCCE,
     REMOVE_PRODUCT_ERROR,
     GET_PRODUCT_EDIT,
+    START_EDITING_PRODUCT,
     EDIT_PRODUCT_SUCCE,
     EDIT_PRODUCT_ERROR
 } from '../types';
@@ -143,4 +144,27 @@ export function getProductEdit(product) {
 const getProductEditAction = product => ({
     type: GET_PRODUCT_EDIT,
     payload: product
-})
+});
+
+//Edit a record in the API and status
+export function editProductAction(product) {
+    return async (dispatch) => {
+        dispatch( editProduct() );
+
+        try {
+           await clientAxios.put(`/products/${product.id}`, product);
+           dispatch( editProductSucce(product) ); 
+        } catch (error) {
+            
+        }
+    }
+}
+
+const editProduct = () => ({
+    type: START_EDITING_PRODUCT
+});
+
+const editProductSucce = product => ({
+    type: EDIT_PRODUCT_SUCCE,
+    payload: product
+});
