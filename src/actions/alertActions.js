@@ -20,4 +20,4 @@ export function hideAlertAction() {
 
 const hideAlert = () => ({
     type: HIDE_ALERT
-})
+});
