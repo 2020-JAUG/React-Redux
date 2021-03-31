@@ -27,6 +27,7 @@ import { showAlert, hideAlertAction } from '../actions/alertActions';
         //Validate form
         if(name.trim() === '' || price <= 0) {
 
+            //We build the answer
             const alert = {
                 msg: 'Both fields are required',
                 class: 'alert alert-danger text-center text-uppercase p3'
