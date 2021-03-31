@@ -56,7 +56,7 @@ import { showAlert, hideAlertAction } from '../actions/alertActions';
                  <div className="card">
                      <div className="body">
                          <h2 className="text-center mb-4 font-weight-bold">
-                             Add new Product
+                             Add New Product
                          </h2>
 
                         { alert ? <p className={alert.class}> {alert.msg} </p> : null }
