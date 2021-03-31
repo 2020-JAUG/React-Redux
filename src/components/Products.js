@@ -12,7 +12,8 @@ const Products = () => {
         //Consult the API
         const loadProducts = () => dispatch( getProductsAction() );
         loadProducts();
-    }, [dispatch]);
+        //eslint-disable-next-line
+    }, []);
 
     //Get the state
     const products = useSelector( state => state.products.products );
